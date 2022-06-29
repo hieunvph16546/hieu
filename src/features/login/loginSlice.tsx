@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {CacheCommon} from 'app/type';
+import { createSlice } from '@reduxjs/toolkit';
+import { CacheCommon } from 'app/type';
 
 interface State {
   common: CacheCommon;

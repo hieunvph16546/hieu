@@ -4,6 +4,7 @@ import { TextInput, useTheme } from 'react-native-paper';
 type IProps = React.ComponentProps<typeof TextInput>;
 
 const AppTextInput: React.FC<IProps> = props => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const theme = useTheme();
   const textInputTheme = { colors: { background: 'white' } };
 

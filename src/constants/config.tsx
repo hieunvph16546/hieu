@@ -20,7 +20,8 @@ export const config = {
   MS_SALE: RNConfig.MS_SALE,
   MS_WORKFLOW: RNConfig.MS_WORKFLOW,
   MS_CUSTOMER_ORG: RNConfig.MS_CUSTOMER_ORG,
-  MS_REPORT: RNConfig.MS_REPORT,
+  MS_DASHBORD_REPORT: RNConfig.MS_DASHBORD_REPORT,
+  MS_CUSTOMER_REPORT: RNConfig.MS_CUSTOMER_REPORT,
 };
 
 export const authenConfig = {

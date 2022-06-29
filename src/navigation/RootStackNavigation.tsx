@@ -4,13 +4,25 @@ import { NavigatorScreenParams } from '@react-navigation/native';
 import { StatusBar, useColorScheme, SafeAreaView } from 'react-native';
 import Login from 'features/login';
 import AppTabNavigation, { AppTabParamList } from './AppTabNavigation';
-import Dialog from 'features/dialog';
-import CreateCalendar from 'features/create-calendar';
-import UpdateCalendar from 'features/update-calendar';
-import TodoListEvent from 'features/todolist-event';
-import TodoUpdate from 'features/todolist-event-update';
+// import Dialog from 'features/dialog';
+// import CreateCalendar from 'features/create-calendar';
+// import UpdateCalendar from 'features/update-calendar';
+// import TodoListEvent from 'features/todolist-event';
+// import TodoUpdate from 'features/todolist-event-update';
 import { useAppUser } from 'context/AppUserContext';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Covid from 'features/covid';
+import Home from 'features/home';
+import Insurancetaxbanking from 'features/insurancetaxbanking';
+import Socialinsurance from 'features/insurancetaxbanking/Fage/social_insurance';
+import Headerinsurance from 'features/insurancetaxbanking/Fage/health_Insurance';
+import Codetaxnumber from 'features/insurancetaxbanking/Fage/code_tax_number';
+import Accountbank from 'features/insurancetaxbanking/Fage/account_bank';
+import Updatecodetax from 'features/insurancetaxbanking/update/Updatecodetax';
+import Updatesocialinsurance from 'features/insurancetaxbanking/update/updatesocialinsurance';
+import Updatebankaccount from 'features/insurancetaxbanking/update/Updateaccountbank';
+import Updatehealthinsurance from 'features/insurancetaxbanking/update/Updatehealthinsurance';
 export type RootStackParamList = {
   Login: undefined;
   AppTab: NavigatorScreenParams<AppTabParamList>; //Lấy params trong screen da khai bao tai apptabparams
@@ -37,6 +49,16 @@ export type RootStackParamList = {
   PotentialCustomerDetail: undefined;
   InsuranceSalesHub: undefined;
   TargetDetail: undefined;
+  Socialinsurance: undefined;
+  HealthInsurance: undefined;
+  Hodetaxnumber: undefined;
+  Hccountbank: undefined;
+  Updatecodetax: undefined;
+  Updatesocialinsurance: undefined;
+  Updatehealthinsurance: undefined;
+  Updatebankaccount: undefined;
+  Insurancetaxbanking: undefined;
+
   // Profile: { userId: string };
   // Feed: { sort: 'latest' | 'top' } | undefined;
 };
@@ -58,6 +80,55 @@ const RootStackNavigation: React.FC = () => {
     presentation: 'transparentModal',
   };
 
+  const Tab = createBottomTabNavigator();
+
+  const MyTabs = () => {
+    return (
+      <Tab.Navigator screenOptions={() => groupStackAppTabScreenOptions} initialRouteName="Feed">
+        <Tab.Screen
+          name="Feed"
+          component={Home}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home" color={color} size={size} />,
+          }}
+        />
+        <Tab.Screen
+          name="Notifications"
+          component={Covid}
+          options={{
+            tabBarLabel: 'Covid',
+            tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="bell" color={color} size={size} />,
+            tabBarBadge: 3,
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={Covid}
+          options={{
+            tabBarLabel: 'Covid',
+            tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" color={color} size={size} />,
+          }}
+        />
+        <Tab.Screen
+          name="Profile1"
+          component={Covid}
+          options={{
+            tabBarLabel: 'Covid',
+            tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" color={color} size={size} />,
+          }}
+        />
+        <Tab.Screen
+          name="Profile2"
+          component={Covid}
+          options={{
+            tabBarLabel: 'Covid',
+            tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" color={color} size={size} />,
+          }}
+        />
+      </Tab.Navigator>
+    );
+  };
   return (
     <SafeAreaView
       style={backgroundStyle}
@@ -68,14 +139,16 @@ const RootStackNavigation: React.FC = () => {
       {detailUserInfo ? (
         <RootStack.Navigator>
           <RootStack.Group screenOptions={() => groupStackAppTabScreenOptions}>
-            <RootStack.Screen name="AppTab" component={AppTabNavigation} />
-            <RootStack.Screen name="CreateCalendar" component={CreateCalendar} />
-            <RootStack.Screen name="UpdateCalendar" component={UpdateCalendar} />
-            <RootStack.Screen name="CreateTodoEvent" component={TodoListEvent} />
-            <RootStack.Screen name="UpdateTodo" component={TodoUpdate} />
-          </RootStack.Group>
-          <RootStack.Group screenOptions={() => groupStackAppTabScreenOptions}>
-            <RootStack.Screen name="Dialog" component={Dialog} />
+            <RootStack.Screen name="MyTabs" component={MyTabs} />
+            <RootStack.Screen name="Insurancetaxbanking" component={Insurancetaxbanking} />
+            <RootStack.Screen name="Socialinsurance" component={Socialinsurance} />
+            <RootStack.Screen name="Headerinsurance" component={Headerinsurance} />
+            <RootStack.Screen name="Codetaxnumber" component={Codetaxnumber} />
+            <RootStack.Screen name="Accountbank" component={Accountbank} />
+            <RootStack.Screen name="Updatecodetax" component={Updatecodetax} />
+            <RootStack.Screen name="Updatesocialinsurance" component={Updatesocialinsurance} />
+            <RootStack.Screen name="Updatehealthinsurance" component={Updatehealthinsurance} />
+            <RootStack.Screen name="Updatebankaccount" component={Updatebankaccount} />
           </RootStack.Group>
         </RootStack.Navigator>
       ) : (

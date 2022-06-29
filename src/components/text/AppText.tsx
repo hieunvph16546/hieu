@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, useTheme} from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 
 type IProps = React.ComponentProps<typeof Text> & {
   boldOrLight?: 'normal' | 'bold' | 'light';
@@ -7,7 +7,7 @@ type IProps = React.ComponentProps<typeof Text> & {
 
 const AppText: React.FC<IProps> = props => {
   const theme = useTheme();
-  const {boldOrLight} = props;
+  const { boldOrLight } = props;
   let font = theme.fonts.regular;
 
   if (boldOrLight && boldOrLight === 'bold') {

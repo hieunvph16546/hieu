@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TouchableWithoutFeedback, Keyboard, ImageSourcePropType } from 'react-native';
 import { useAppUser } from 'context/AppUserContext';
 import { useDialog } from 'components/dialog/AppDialogContext';
 import { translate } from 'utils';
 import { AppError, PrevUser } from 'app/type';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { AppImage, AppView, AppViewWithFullScreenLoading } from 'components';
 import LoginDialog from 'features/login/components/LoginDialog';
 import { appConstants } from 'constants/const';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import image from 'assets/icons';
 import styles from 'features/login/style';
 import { useTheme } from 'react-native-paper';
@@ -85,7 +88,6 @@ const Login: React.FC = () => {
       }}>
       <AppViewWithFullScreenLoading style={styles.container} isLoading={loading} textLoading={translate('loading')}>
         <AppView style={styles.container}>
-          <AppImage style={styles.backgroundImage} source={image.BG_LOGIN as ImageSourcePropType} />
           <AppView style={styles.content}>
             <AppView style={styles.leftContent}>
               <LoginDialog
@@ -97,10 +99,7 @@ const Login: React.FC = () => {
             </AppView>
             <AppView style={styles.rightContent}>
               <AppView style={styles.logoCrmSmart}>
-                <AppImage style={styles.imgCrmSmart} source={image.IC_CRM_SMART as ImageSourcePropType} />
-              </AppView>
-              <AppView style={styles.logoCrmOverlay}>
-                <AppImage style={styles.imgCrmOverlay} source={image.IC_CRM_OVERLAY as ImageSourcePropType} />
+                <AppImage style={styles.imgCrmSmart} source={image.IC_LOGO_MCREDIT_FOOD as ImageSourcePropType} />
               </AppView>
             </AppView>
           </AppView>

@@ -222,33 +222,34 @@ const AppUserProvider: React.FC = props => {
     const validatedError: AppError | undefined = _validateUserNameAndPassword(userName, password);
     if (!validatedError) {
       try {
-        //1. Call API lấy token
-        await loginAPI.getToken(userName, password);
-        apiClient.startActionRefreshToken();
+        setDetailUserInfo({ t24Employee: 'fakeData' });
+        // //1. Call API lấy token
+        // await loginAPI.getToken(userName, password);
+        // apiClient.startActionRefreshToken();
 
-        //2. Lấy thông tin cơ bản của User
-        const getBasicUserInfo = await loginAPI.getBasicUserInfo(userName, 1);
+        // //2. Lấy thông tin cơ bản của User
+        // const getBasicUserInfo = await loginAPI.getBasicUserInfo(userName, 1);
 
-        //3. Lấy thông tin chi tiết của User
-        const { hrsCode, fullName, gender } = getBasicUserInfo;
-        const getDetailUserInfo = await loginAPI.getDetailUserInfoByHrisCode(hrsCode);
+        // //3. Lấy thông tin chi tiết của User
+        // const { hrsCode, fullName, gender } = getBasicUserInfo;
+        // const getDetailUserInfo = await loginAPI.getDetailUserInfoByHrisCode(hrsCode);
 
-        //4. Lấy khối của User Đăng nhập
-        await Promise.all([loginAPI.getBlockByRm(), getCommon(), getIndustry(), getRsId(), getBlocks()]);
+        // //4. Lấy khối của User Đăng nhập
+        // await Promise.all([loginAPI.getBlockByRm(), getCommon(), getIndustry(), getRsId(), getBlocks()]);
 
-        //5. Check Active thiết bị
-        if (config.IS_UAT === '0') {
-          await loginAPI.checkDeviceActive(deviceInfo);
-        }
+        // //5. Check Active thiết bị
+        // if (config.IS_UAT === '0') {
+        //   await loginAPI.checkDeviceActive(deviceInfo);
+        // }
 
-        //6. Lưu thông tin User Info
-        setBasicUserInfo(getBasicUserInfo);
-        setDetailUserInfo(getDetailUserInfo);
+        // //6. Lưu thông tin User Info
+        // setBasicUserInfo(getBasicUserInfo);
+        // setDetailUserInfo(getDetailUserInfo);
 
-        //7. Run localSessionExpired
-        setLocalTimeOutCount(0);
-        setServerTimeOutCount(0);
-        await _savePrevUserToStorage(userName, fullName, gender);
+        // //7. Run localSessionExpired
+        // setLocalTimeOutCount(0);
+        // setServerTimeOutCount(0);
+        // await _savePrevUserToStorage(userName, fullName, gender);
       } catch (err) {
         throw err;
       }

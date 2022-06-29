@@ -13,7 +13,7 @@ export const dashboardApi = {
   fetchChartData(params: IRequestParam): Promise<DashboardChartResponse> {
     return new Promise<DashboardChartResponse>((resolve, reject) => {
       apiClient
-        .get(API_METHOD.MS_REPORT.DASHBORD_CHART, params, { timeout: 10 * 1000 })
+        .get(API_METHOD.MS_DASHBORD_REPORT.DASHBORD_CHART, params, { timeout: 10 * 1000 })
         .then(response => {
           const data = response as DashboardChartResponse;
           resolve(data);

@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,17 +20,18 @@ const styles = StyleSheet.create({
   },
   leftContent: {
     width: 450,
+    marginTop: -150,
   },
   rightContent: {
     flex: 1,
   },
   logoCrmSmart: {
-    marginTop: 22,
+    marginTop: 570,
     alignItems: 'flex-end',
   },
   imgCrmSmart: {
-    height: 50,
-    width: 230,
+    height: 200,
+    width: 450,
   },
   logoCrmOverlay: {
     alignItems: 'center',

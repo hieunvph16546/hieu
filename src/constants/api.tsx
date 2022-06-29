@@ -141,8 +141,8 @@ const API_METHOD = {
     GET_SEGMENT: getFullMethod(config.MS_CUSTOMER_ORG, config.VER_1_0, 'customers/segment'),
     OPP_CUSTOMER_DETAIL: getFullMethod(config.MS_CUSTOMER_ORG, config.VER_1_0, 'customers/opportunity'),
   },
-  MS_REPORT: {
-    DASHBORD_CHART: getFullMethod(config.MS_REPORT, config.VER_1_0, 'dashboard/viewSMEDashBoard'),
+  MS_DASHBORD_REPORT: {
+    DASHBORD_CHART: getFullMethod(config.MS_DASHBORD_REPORT, config.VER_1_0, 'dashboard/viewSMEDashBoard'),
   },
 };
 export default API_METHOD;

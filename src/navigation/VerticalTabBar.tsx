@@ -21,10 +21,10 @@ const VerticalTabBar: React.FC<IProps> = ({ state, descriptors, navigation }: IP
         return image.IC_SALEKIT as ImageSourcePropType;
       case 'Sale':
         return image.IC_SALE as ImageSourcePropType;
-      case 'Customer':
+      case 'Client':
+        return image.IC_SALE as ImageSourcePropType;
+      case 'Warning':
         return image.IC_CUSTOMER as ImageSourcePropType;
-      case 'Dashboard':
-        return image.IC_DASHBOARD as ImageSourcePropType;
       case 'Warning':
         return image.IC_WARNING as ImageSourcePropType;
       case 'SaleManager':
